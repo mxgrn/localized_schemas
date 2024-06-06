@@ -1,0 +1,12 @@
+<.flash_group flash={@flash} />
+
+<div class="max-w-lg m-auto">
+  Choose locale:
+  <ul class="m-auto">
+    <li :for={
+      locale <- Application.get_env(:localized_schemas, LocalizedSchemasWeb.Gettext)[:locales]
+    }>
+      * <.link href={~p"/#{locale}/things"}><%= locale %></.link>
+    </li>
+  </ul>
+</div>
